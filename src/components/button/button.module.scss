@@ -1,0 +1,16 @@
+.button{
+    padding:0.35em 1.2em;
+    border:1px solid var(--primary);
+    border-radius:10%;
+    font-weight:300;
+    color:var(--light);
+    text-align:center;
+    transition: all 0.2s;
+    background-color: var(--primary);
+    cursor: pointer;
+
+    &:hover{
+        // box-shadow: 0 2rem 5rem rgba(var(--primary),.1);
+        box-shadow: rgba(17, 17, 26, 0.1) 0px 4px 16px, rgba(17, 17, 26, 0.1) 0px 8px 24px, rgba(17, 17, 26, 0.1) 0px 16px 56px;    
+    }
+}

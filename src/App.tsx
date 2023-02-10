@@ -1,15 +1,19 @@
 import React from 'react'
-import './App.module.scss'
-import Button from './components/button.component'
+import styles from './App.module.scss'
+import Button from './components/button/button.component'
+import InputText from './components/inputText/inputText.component'
 function App (): JSX.Element {
   return (
-    <div className="app">
-      <div className="app__header">
+    <div className={styles.app}>
+      <div className={styles.app__header}>
         <h1>Chatboard</h1>
-        <input type="text" placeholder='Type your tag' />
-        <Button />
+        <div className={styles.app__header__tags}>
+          <InputText placeholder="Type your tag"/>
+          <Button text="Set" />
+        </div>
+        <InputText placeholder="Type your name"/>
       </div>
-      <div className="app__body">
+      <div className={styles.app__body}>
           This is the app body
       </div>
     </div>

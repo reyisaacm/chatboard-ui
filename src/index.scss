@@ -1,3 +1,11 @@
+:root {
+  --primary: #00392E;
+  --secondary: #051B3B;
+  --tertiary: #124C00;
+  --light: #fff;
+  --dark: #000;
+}
+
 *,*::before, *::after{
   margin:0;
   padding: 0;
@@ -7,4 +15,9 @@
 html{
   box-sizing: border-box;
   font-size: 62.5%; // 10px/16px = 62.5% -> 1re, =10px
+}
+
+body{
+  font-size: 1.6rem;
+  font-family: sans-serif;
 }
