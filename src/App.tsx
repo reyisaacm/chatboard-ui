@@ -21,8 +21,8 @@ function App (): JSX.Element {
 
       </div>
       <div className={styles.app__body}>
-          <ChatText/>
-          <ChatText/>
+          <ChatText name="My name" content='Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quaerat fugiat, quis reiciendis natus tenetur voluptatum ex magni reprehenderit laudantium debitis consectetur minima ducimus quisquam, doloremque a in accusantium! Nisi, non.'/>
+          <ChatText name="My name" content='Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quaerat fugiat, quis reiciendis natus tenetur voluptatum ex magni reprehenderit laudantium debitis consectetur minima ducimus quisquam, doloremque a in accusantium! Nisi, non.'/>
       </div>
     </div>
   )

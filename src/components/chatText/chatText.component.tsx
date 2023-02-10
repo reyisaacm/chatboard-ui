@@ -1,10 +1,12 @@
 import React from 'react'
+import type ChatTextProps from '../../types/chatTextProps'
+
 import styles from './chatText.module.scss'
-function ChatText (): JSX.Element {
+function ChatText (props: ChatTextProps): JSX.Element {
   return (
        <div className={styles.box}>
-            <div className={styles.name}>My name</div>
-            <div>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quaerat fugiat, quis reiciendis natus tenetur voluptatum ex magni reprehenderit laudantium debitis consectetur minima ducimus quisquam, doloremque a in accusantium! Nisi, non.</div>
+            <div className={styles.name}>{props.name}</div>
+            <div>{props.content}</div>
         </div>
   )
 }
