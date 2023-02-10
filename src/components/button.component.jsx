@@ -1,5 +1,5 @@
 import React from 'react'
-import './button.modules.css'
+import './button.module.css'
 function Button () {
   return (
         <a className='button'>Apply</a>

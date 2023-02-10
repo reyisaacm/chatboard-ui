@@ -1,0 +1,18 @@
+.app{
+  display: grid;
+  grid-template-columns: 0.5fr 1fr 0.5fr;
+  justify-items: center;
+
+  &__header{
+    grid-column: 2/2;
+
+    & h1{
+      text-align: center;
+    }
+  }
+
+  &__body{
+    background-color: orange;
+    grid-column: 1/-1;
+  }
+}

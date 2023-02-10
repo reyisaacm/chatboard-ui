@@ -1,5 +1,5 @@
 import React from 'react'
-import './App.modules.css'
+import './App.module.scss'
 import Button from './components/button.component'
 function App (): JSX.Element {
   return (
