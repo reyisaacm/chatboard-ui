@@ -4,7 +4,7 @@ import styles from './button.module.scss'
 
 function Button (props: ButtonProps): JSX.Element {
   return (
-        <button className={styles.button}>{props.text}</button>
+        <button onClick={props.onClickHandler} className={styles.button}>{props.text}</button>
   )
 }
 
