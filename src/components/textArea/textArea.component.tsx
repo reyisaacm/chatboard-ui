@@ -4,7 +4,7 @@ import styles from './textArea.module.scss'
 
 function TextArea (props: TextAreaProps): JSX.Element {
   return (
-        <textarea className={styles['text-area']} rows={5} placeholder={props.placeholder}></textarea>
+        <textarea className={styles['text-area']} name={props.name} rows={5} placeholder={props.placeholder}>{props.value}</textarea>
   )
 }
 

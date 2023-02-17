@@ -1,6 +1,6 @@
 /* eslint-disable */
 
-import React, { useEffect, useState } from 'react'
+import React, { ChangeEvent, useEffect, useState } from 'react'
 import useWebSocket, { ReadyState } from 'react-use-websocket'
 import styles from './App.module.scss'
 import Button from './components/button/button.component'
@@ -8,10 +8,23 @@ import ChatText from './components/chatText/chatText.component'
 import InputText from './components/inputText/inputText.component'
 import TextArea from './components/textArea/textArea.component'
 function App (): JSX.Element {
-  const [socketUrl, setSocketUrl] = useState('wss://a336-36-66-131-234.ap.ngrok.io/ws')
+  const socketUrl = 'wss://93d7-180-244-133-32.ap.ngrok.io/ws'
+  // const socketUrl = 'wss://ws.postman-echo.com/raw'
   const [messageHistory, setMessageHistory] = useState([])
 
-  const { sendMessage, lastMessage, readyState } = useWebSocket(socketUrl)
+  const [tag, setTag] = useState("default")
+  const [tagField, setTagField] = useState("default")
+  const [nameField, setNameField] = useState("")
+  const [messageField, setMessageField] = useState("")
+
+  const { sendJsonMessage, lastMessage, readyState } = useWebSocket(socketUrl,{
+    shouldReconnect: (): boolean => true,
+    onClose:(e: CloseEvent): void =>{
+      console.log("closed")
+      console.log(e)
+    },
+    share: true
+  })
 
   
   useEffect(() => {
@@ -21,11 +34,16 @@ function App (): JSX.Element {
     console.log(lastMessage)
   }, [lastMessage, setMessageHistory]);
   
-  const handleSendMessage = () => {
-    alert('send message')
+  const handleSendMessage = ():void => {
+    let jsonMessage = {
+      tag: tag,
+      name: nameField,
+      message: messageField
+    }
+    sendJsonMessage(jsonMessage)
   }
 
-  const handleSetTag = () => {
+  const handleSetTag = ():void => {
     alert('set tag')
   }
 
@@ -36,17 +54,31 @@ function App (): JSX.Element {
     [ReadyState.CLOSED]: 'Closed',
     [ReadyState.UNINSTANTIATED]: 'Uninstantiated',
   }[readyState];
+
+  const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
+    const { name, value } = event.target
+    if(name === "tag"){
+      setTagField(value)
+    } else  if(name === "message"){
+      setMessageField(value)
+    } else if(name === "name"){
+      setNameField(value)
+    }
+    // setFormFields({ ...formFields, [name]: value })
+    // console.log(event.target.value)
+  }
+
   return (
     <div className={styles.app}>
       <div className={styles.app__header}>
         <h1>Chatboard {connectionStatus}</h1>
         <div className={styles.app__header__tags}>
-          <InputText placeholder="Type your tag"/>
+          <InputText name="tag" placeholder="Type your tag" value={tagField} onChangeHandler={handleChange}/>
           <Button text="Set" onClickHandler={handleSetTag} />
         </div>
         <div className={styles.app__header__inputs}>
-          <InputText placeholder="Type your name"/>
-          <TextArea placeholder="Type your message"/>
+          <InputText name="name" placeholder="Type your name" value={nameField} onChangeHandler={handleChange}/>
+          <TextArea name="message" placeholder="Type your message" value={messageField} onChangeHandler={handleChange}/>
           <Button text="Submit" onClickHandler={handleSendMessage} />
         </div>
 

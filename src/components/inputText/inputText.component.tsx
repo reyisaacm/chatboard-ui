@@ -4,7 +4,7 @@ import styles from './inputText.module.scss'
 
 function InputText (props: InputTextProps): JSX.Element {
   return (
-        <input type="text" placeholder={props.placeholder} className={styles['input-text']} />
+        <input type="text" onChange={props.onChangeHandler} placeholder={props.placeholder} value={props.value} name={props.name} className={styles['input-text']} />
   )
 }
 

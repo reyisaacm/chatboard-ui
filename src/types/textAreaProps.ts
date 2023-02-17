@@ -1,6 +1,6 @@
-import type InputTextProps from './inputTextProps'
+import type BaseInputProps from './baseInputProps'
 
-interface TextAreaProps extends InputTextProps {
+interface TextAreaProps extends BaseInputProps {
 
 }
 
