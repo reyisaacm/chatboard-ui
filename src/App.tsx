@@ -8,7 +8,7 @@ import ChatText from './components/chatText/chatText.component'
 import InputText from './components/inputText/inputText.component'
 import TextArea from './components/textArea/textArea.component'
 function App (): JSX.Element {
-  const socketUrl = 'wss://93d7-180-244-133-32.ap.ngrok.io/ws'
+  const socketUrl = 'ws://localhost:1323/ws'
   // const socketUrl = 'wss://ws.postman-echo.com/raw'
   const [messageHistory, setMessageHistory] = useState([])
 
